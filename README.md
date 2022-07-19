@@ -9,4 +9,4 @@ To run:
     1st CMD: add-migration nameOfMigration 
     2nd CMD: update-database
 
-sidenote: Each API key has a 100 daily call limit.
+Sidenote: Each API key has a 100 daily call limit. Most of the CSS is from a Bootswatch theme.
