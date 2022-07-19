@@ -4,8 +4,8 @@ A simple web app developed with C# and ASP.NET, it gathers stock data via an API
 ASP.NET Core 6.0 and SQL
 
 To run:
--Make sure to change your DB connection in appsettings.json
--You can migrate the DB with Package Manager Console with the following CMDs 
+1. Make sure to change your DB connection in appsettings.json
+2. You can migrate the DB with Package Manager Console with the following CMDs -
     1st cmd: add-migration nameOfMigration 
     2nd cmd: update-database
 
