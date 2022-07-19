@@ -29,10 +29,6 @@ namespace HigherPercentile.Controllers
             _logger = logger;
             this.db = db;
 
-            Console.WriteLine("here i am *****************" + Environment.CurrentDirectory);
-
-            //make sure to delete migrations!!!
-
             //make a method that sends an API request to check what the
             //status code is if the status code is good then run the subprogram
 
@@ -74,9 +70,6 @@ namespace HigherPercentile.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Index(Watchlist watchlistItem)
         {
-            Console.WriteLine("****UserID " + watchlistItem.UserId);
-            Console.WriteLine("****StockID "+watchlistItem.StockId);
-
             if (watchlistItem.UserId == null || watchlistItem.UserId == 0)
             {
                 TempData["error"] = "Need to be Logged in!";
