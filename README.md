@@ -5,6 +5,8 @@ ASP.NET Core 6.0 and SQL
 
 To run:
 -Make sure to change your DB connection in appsettings.json
--You can migrate the DB with Package Manager Console with the CMDs - 1st cmd: add-migration nameOfMigration - 2nd cmd: update-database
+-You can migrate the DB with Package Manager Console with the following CMDs 
+    1st cmd: add-migration nameOfMigration 
+    2nd cmd: update-database
 
 sidenote: each API key has a 100 daily call limit
