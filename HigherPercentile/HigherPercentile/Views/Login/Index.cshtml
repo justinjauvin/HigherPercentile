@@ -1,0 +1,40 @@
+﻿@model User
+@{
+    ViewData["Title"] = "Index";
+}
+
+<partial name="_SharedNotification"/>
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        
+        <div class="row pb-2">
+            <h2 class="text-primary">Login</h2>
+            <hr/>
+        </div>
+
+        @*<div asp-validation-summary="All"></div>*@
+        <div class="mb-3">
+            <label asp-for="Username">Username</label>
+            <input asp-for="Username" class="form-control"></input>
+            <span asp-validation-for="Username" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Password">Password</label>
+            <input type="password" asp-for="Password" class="form-control"></input>
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        
+        <button type="submit" class="btn btn-primary" style="width:150px">Login</button>
+        
+        <a asp-controller="Login" asp-action="CreateUser" class="btn btn-secondary" style="width:150px">
+            Create User
+        </a>
+    </div>
+</form>
+
+@*this enables client side validation rather than going to the server to validate*@
+@section Scripts{
+    <partial name="_ValidationScriptsPartial"></partial>
+}

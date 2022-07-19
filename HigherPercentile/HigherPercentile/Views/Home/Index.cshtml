@@ -1,0 +1,110 @@
+﻿@model Watchlist
+
+@{
+    List<Stock>? stockList = ViewData["stockList"] as List<Stock>;
+    User? user = ViewData["user"] as User;
+
+    String welcomeMessage = "Welcome";
+
+    if (user!= null)
+    {
+        welcomeMessage += " " + user.Username + "!";
+    }
+
+    if (user==null)
+    {
+        user = new User();
+    }
+
+}
+
+<partial name="_SharedNotification"/>
+
+<div class="text-center">
+    <h1 class="display-4">@welcomeMessage</h1>
+    @*<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>*@
+</div>
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Momentum List</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Watchlist" asp-action="Index" asp-route-userId="@user.Id" class="btn btn-primary" style="width:150px; background-color: #50B36D;">WatchList</a>
+
+        </div>
+    </div>
+    <br></br>
+<table class="table table-bordered table-striped" style="width=100%">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Symbol
+            </th>
+            <th>
+                Momentum Percentage
+            </th>
+            <th>
+                One Month Return
+            </th>
+            <th>
+                Three Month Return
+            </th>
+            <th>
+                Six Month Return
+            </th>
+            <th>
+                One Year Return
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(Stock n in stockList)
+        {   
+            <tr>
+                <td width="14%">
+                    @n.Name
+                </td>
+                <td width="14%">
+                    @n.Symbol
+                </td>
+                <td width="14%">
+                    @n.MomentumTotal%
+                </td>
+                <td width="14%">
+                    @n.OneMonthReturn%
+                </td>
+                <td width="14%">
+                    @n.ThreeMonthReturn%
+                </td>
+                <td width="14%">
+                    @n.SixMonthReturn%
+                </td>
+                <td width="14%">
+                    @n.OneYearReturn%
+                </td>
+                <td>
+                    <div class="w-75 btn-group" role="group">
+                        @if (user != null)
+                        {
+                        <form method="post">   
+                            <input type="hidden" asp-for="UserId" value="@user.Id"></input>    
+                            <input type="hidden" asp-for="StockId" value="@n.Id"></input>
+                            <button type="submit" class="btn btn-primary" style="width:150px">Add to WatchList</button>
+                         </form>
+                        }
+                        else
+                        {
+                            <a asp-controller="Login" asp-action="Index" class="btn btn-primary">Add to WatchList</a>    
+                        }
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+</div>
