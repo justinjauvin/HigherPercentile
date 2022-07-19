@@ -5,7 +5,7 @@ ASP.NET Core 6.0 and SQL
 
 To run:
 1. Make sure to change your DB connection in appsettings.json
-2. You can migrate the DB with Package Manager Console with the following CMDs -
+2. You can migrate the DB with the Package Manager Console using the following CMDs -
     1st CMD: add-migration nameOfMigration 
     2nd CMD: update-database
 
