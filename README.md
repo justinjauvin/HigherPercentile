@@ -9,4 +9,4 @@ To run:
     1st cmd: add-migration nameOfMigration 
     2nd cmd: update-database
 
-sidenote: each API key has a 100 daily call limit
+sidenote: Each API key has a 100 daily call limit.
